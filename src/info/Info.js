@@ -10,7 +10,7 @@ export const info = {
     firstName: "Adarsh",
     lastName: "Khatri",
     initials: "ad007", 
-    position: "currently learning C++ and React",
+    position: "currently learning C#",
     selfPortrait: self, 
     gradient: `-webkit-linear-gradient(190deg, ${colors})`, 
     baseColor: colors[0],
@@ -59,7 +59,7 @@ export const info = {
     skills:
         {
             proficientWith: ['C++','Java','Python','Docker'],
-            exposedTo: ['nodejs','Adobe Photoshop','React','MongoDB','Tailwind']
+            exposedTo: ['C#','node.js','Adobe Photoshop','React','MongoDB','Tailwind']
         }
     ,
     hobbies: [
