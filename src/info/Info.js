@@ -10,7 +10,7 @@ export const info = {
     firstName: "Adarsh",
     lastName: "Khatri",
     initials: "ad007", 
-    position: "currently learning C#",
+    position: "currently learning CPP and Java",
     selfPortrait: self, 
     gradient: `-webkit-linear-gradient(190deg, ${colors})`, 
     baseColor: colors[0],
@@ -55,7 +55,7 @@ export const info = {
         }
 
     ],
-    bio: "Hello! I'm Adarsh, a Computer Science student at LPU. I have a keen interest in learning C++ and DSA. I am confident in my abilities and believe that my skills and passion make me a strong candidate for any role.You should hire me!",
+    bio: "Hello! I'm Adarsh, a Computer Science student at LPU. I have a keen interest in learning C++ and DSA.",
     skills:
         {
             proficientWith: ['C++','Java','Python','Docker'],
