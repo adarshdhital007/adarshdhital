@@ -13,6 +13,10 @@
   @media only screen and (min-width: 940px) {
     columns: 2;
   }
+  
+  @media only screen and (max-width: 940px) {
+    columns: 2;
+  }
 
   li {
     margin: 0;
