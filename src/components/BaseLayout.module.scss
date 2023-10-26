@@ -3,6 +3,7 @@
 footer {
   color: $dark;
 }
+
 .redHeart {
   color: red;
 }
@@ -12,7 +13,9 @@ footer {
   color: $white;
   transition: all 400ms;
 
-  a, i, li {
+  a,
+  i,
+  li {
     color: $white;
     transition: color 400ms;
   }
@@ -30,5 +33,5 @@ footer {
   background-color: $white;
   color: $dark;
   transition: all 400ms;
-}
 
+}
