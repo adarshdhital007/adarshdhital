@@ -10,7 +10,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
 import { CaptionComponent } from "./Caption";
-
+import InteractiveParagraph from "./InteractiveParagraph";
 
 function CustomLink(props) {
   let href = props.href;
@@ -118,6 +118,7 @@ let components = {
   Table,
   del: Strikethrough,
   Callout,
+  InteractiveParagraph,
 };
 
 export function CustomMDX(props) {

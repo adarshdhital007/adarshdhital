@@ -52,11 +52,11 @@ const RevealMe = forwardRef<HTMLDivElement, RevealMeProps>(
         case "fast":
           return "1s";
         case "medium":
-          return "2.3s";
+          return "2s";
         case "slow":
           return "3s";
         default:
-          return "2s";
+          return "1.5s";
       }
     };
 
@@ -83,7 +83,7 @@ const RevealMe = forwardRef<HTMLDivElement, RevealMeProps>(
         horizontal="center"
         ref={ref}
         style={revealStyle}
-        className={`${styles.RevealMe} ${
+        className={`${styles.visible} ${
           isRevealed ? styles.revealed : styles.hidden
         } ${className || ""}`}
         {...rest}
