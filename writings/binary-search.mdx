@@ -1,0 +1,54 @@
+---
+title: "Binary Search"
+publishedDate: "2022-08-08"
+excerpt: "Implementation and explanation of the binary search algorithm for sorted arrays."
+coverImage: "/images/writings/code.jpg"
+tags: "algorithms,binary search, cpp, sorting"
+isHidden: false
+---
+
+This is the implementation of binary search. First, we set up two values: 'low' to 0 and 'high' to 'nums.size() - 1'. Then, we initiate a while loop that continues as long as 'low' is less than or equal to 'high'. Within the loop, if the sum of 'low' and 'high' equals the 'target', we have found the target. Otherwise, if the sum is less than the 'target', we decrease 'high' by 'mid - 1'; otherwise, we decrease 'low' by 'mid + 1'. Finally, we return the result.
+
+### Code
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+// Binary Search only works for sorted elements.
+int main()
+{
+    vector<int> arr{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+    int target = 7;
+    // Set low to 0 and high at last position
+    int low = 0;
+    int high = arr.size() - 1;
+
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+        {
+            cout << "Element is found at :"
+                 << " " << mid << endl;
+            return mid;
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    cout << "Element is not found!" << endl;
+    return 0;
+}
+```
+
+### Output
+
+```cpp
+Element is found at : 6
+```

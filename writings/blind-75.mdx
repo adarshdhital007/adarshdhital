@@ -1,0 +1,137 @@
+---
+title: "Blind 75"
+publishedDate: "2024-09-12"
+excerpt: "A summary of algorithms and approaches for the popular Blind 75 coding interview questions."
+coverImage: "/images/writings/code.jpg"
+tags: "algorithms, blind75, coding interview, leetcode"
+isHidden: true
+---
+
+### 1768. Merge Strings Alternately
+1. Initialize two pointers `i` and `j` for `word1` and `word2`.
+2. Use a loop to append characters alternately from `word1` and `word2`.
+3. Continue appending from the remaining portion of the longer string after the shorter one is exhausted.
+4. Return the result string.
+
+### 1071. Greatest Common Divisor of Strings
+1. Check if `str1 + str2 == str2 + str1`. If false, return an empty string.
+2. If true, the GCD of string lengths will give the length of the greatest common divisor string.
+3. Use `gcd(len(str1), len(str2))` to find the length of the common divisor.
+4. Return the substring from either string up to the GCD length.
+
+### 1431. Kids With the Greatest Number of Candies
+1. Find the maximum number of candies among all children.
+2. Iterate over each child's candies and check if adding the `extraCandies` to their current count would make them greater than or equal to the maximum.
+3. Store the result for each child as a boolean value in a list.
+4. Return the result list.
+
+### 605. Can Place Flowers
+1. Iterate through the flowerbed array.
+2. For each empty plot (0), check if the previous and next plots are also empty or non-existent (handle boundaries).
+3. If a flower can be planted at the current plot, plant it and decrement `n`.
+4. Return true if all `n` flowers can be planted, otherwise return false.
+
+### 345. Reverse Vowels of a String
+1. Create a set of vowels for quick lookup.
+2. Use two pointers: `left` starting from the beginning and `right` from the end.
+3. Move the pointers inward until both point to vowels, then swap them.
+4. Continue moving until the pointers cross.
+5. Return the modified string.
+
+### 151. Reverse Words in a String
+1. Split the string by spaces to extract words, ignoring any extra spaces.
+2. Reverse the list of words.
+3. Join the words back together with a single space between each word.
+4. Return the resulting string.
+
+### 238. Product of Array Except Self
+1. Initialize two arrays: `left` and `right` to store the product of all elements to the left and right of each index.
+2. First pass: Fill the `left` array where `left[i]` is the product of all elements before `i`.
+3. Second pass: Fill the `right` array where `right[i]` is the product of all elements after `i`.
+4. Multiply `left[i]` and `right[i]` to get the final result for each index.
+5. Return the resulting product array.
+
+### 334. Increasing Triplet Subsequence
+1. Initialize two variables `first` and `second` to represent the smallest and middle values.
+2. Traverse the array:
+   - If the current element is smaller than `first`, update `first`.
+   - If the current element is greater than `first` but smaller than `second`, update `second`.
+   - If you find a number greater than both `first` and `second`, return true.
+3. If no such triplet is found, return false.
+
+### 443. String Compression
+1. Use a pointer to track the current position in the string.
+2. For each group of consecutive repeating characters, replace them with the character followed by its count (if more than 1).
+3. Move to the next group and repeat.
+4. Return the length of the modified array.
+
+### 283. Move Zeroes
+1. Use a pointer to track the position for placing the next non-zero element.
+2. Traverse the array and move each non-zero element to the front, maintaining their relative order.
+3. Once all non-zero elements are moved, fill the remaining positions with zeroes.
+4. Return the modified array.
+
+### 392. Is Subsequence
+1. Use two pointers: one for `s` and one for `t`.
+2. Traverse `t`, and for each character in `t`, check if it matches the current character in `s`.
+3. If a match is found, move the pointer in `s` to the next character.
+4. If all characters in `s` are found in `t` in order, return true.
+5. Return false if not all characters in `s` are found.
+
+### 11. Container With Most Water
+1. Initialize two pointers: one at the beginning and one at the end of the array.
+2. Calculate the area between the two lines pointed by the pointers, using the smaller height.
+3. Move the pointer pointing to the shorter line inward to try and increase the area.
+4. Continue until the pointers meet.
+5. Return the maximum area found.
+
+### 1679. Max Number of K-Sum Pairs
+1. Sort the array to allow two-pointer traversal.
+2. Initialize two pointers: one at the start and one at the end.
+3. Check the sum of the elements at the two pointers:
+   - If it equals `k`, count the pair and move both pointers inward.
+   - If the sum is less than `k`, move the left pointer inward.
+   - If the sum is greater than `k`, move the right pointer inward.
+4. Continue until the two pointers meet, then return the count of pairs.
+
+### 643. Maximum Average Subarray I
+1. Calculate the sum of the first `k` elements to initialize the window.
+2. Slide the window one element at a time by subtracting the first element of the window and adding the next element.
+3. Keep track of the maximum sum encountered during the sliding process.
+4. Return the maximum average by dividing the maximum sum by `k`.
+
+### 1456. Maximum Number of Vowels in a Substring of Given Length
+1. Initialize a sliding window of size `k` to count the vowels in the first window.
+2. Slide the window across the string:
+   - Add a vowel if it enters the window, and subtract one if it leaves.
+3. Keep track of the maximum number of vowels encountered in any window.
+4. Return the maximum count.
+
+### 1004. Max Consecutive Ones III
+1. Use a sliding window to track the number of `0`s in the current window.
+2. Expand the window by adding elements until the number of `0`s exceeds `k`.
+3. When there are more than `k` `0`s, shrink the window from the left.
+4. Keep track of the maximum length of the window with at most `k` `0`s.
+5. Return the maximum window length.
+
+### 1493. Longest Subarray of 1's After Deleting One Element
+1. Use a sliding window to maintain the number of `0`s in the current window.
+2. Expand the window by adding elements until the window contains more than one `0`.
+3. When there are more than one `0`s, shrink the window from the left.
+4. Track the maximum subarray length with at most one `0`.
+5. Return the maximum length.
+
+### 1732. Find the Highest Altitude
+1. Initialize the current altitude to 0.
+2. Traverse through the gain array, adding each gain value to the current altitude.
+3. Track the maximum altitude encountered during the traversal.
+4. Return the maximum altitude.
+
+### 724. Find Pivot Index
+1. Calculate the total sum of the array.
+2. Iterate through the array:
+   - For each element, calculate the right sum as `totalSum - leftSum - nums[i]`.
+   - If `leftSum == rightSum`, return the current index.
+   - Update the `leftSum` by adding the current element.
+3. If no pivot index is found, return -1.
+

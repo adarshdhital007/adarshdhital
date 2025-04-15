@@ -1,0 +1,66 @@
+---
+title: "Isomorphic Strings"
+publishedDate: "2023-03-06"
+excerpt: "A solution for determining if two strings follow the same character pattern with detailed code examples."
+coverImage: "/images/writings/code.jpg"
+tags: "algorithms, strings, java, leetcode"
+isHidden: true
+---
+
+### Logic
+
+- **Base Case (Verify Lengths)**: Return **false** if **s** and **t** have different lengths.
+- **Create Mappings**: Initialize two mappings (arrays or vectors) for character translations: **s** to **t** and **t** to **s**, filled with **-1**.
+- **Iterate and Map**: Loop through the strings simultaneously. For each character pair **(s[i], t[i])**:
+  - If mappings don't exist, create them.
+  - If existing mappings mismatch, return **false**.
+- **Success**: If no mismatches found, return **true**.
+
+### Java
+
+```java
+public class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] sToT = new int[256];
+        int[] tToS = new int[256];
+        for (int i = 0; i < 256; i++) {
+            sToT[i] = -1;
+            tToS[i] = -1;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            char fromS = s.charAt(i);
+            char fromT = t.charAt(i);
+
+            if (sToT[fromS] == -1 && tToS[fromT] == -1) {
+                sToT[fromS] = fromT;
+                tToS[fromT] = fromS;
+            } else if (!(sToT[fromS] == fromT && tToS[fromT] == fromS)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s1 = "egg", t1 = "add";
+        String s2 = "foo", t2 = "bar";
+
+        System.out.println("Is \"" + s1 + "\" isomorphic to \"" + t1 + "\"? " + (solution.isIsomorphic(s1, t1) ? "Yes" : "No"));
+        System.out.println("Is \"" + s2 + "\" isomorphic to \"" + t2 + "\"? " + (solution.isIsomorphic(s2, t2) ? "Yes" : "No"));
+    }
+}
+```
+
+### Output
+
+```cpp
+Is "egg" isomorphic to "add"? Yes
+Is "foo" isomorphic to "bar"? No
+```
