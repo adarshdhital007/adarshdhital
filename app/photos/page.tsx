@@ -17,8 +17,7 @@ export default function Photos() {
   return (
     <section>
       <PageHero
-        className="!pb-0"
-        subtitle="My Photos"
+        subtitle="Life Captured"
         title={
           <>
             Not a Photographer, Just{" "}

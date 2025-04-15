@@ -14,7 +14,7 @@ import Tag from "app/components/Tag";
 export const metadata: Metadata = {
   title: "Writings | Adarsh Dhital Khatri",
   description:
-    "Read the latest writings by Adarsh Dhital Khatri, exploring various topics and insights.",
+    "These aren’t polished essays — just thoughts, reflections, and ideas I felt like putting into words. No big claims, just honest writing from wherever I am in the moment.",
   alternates: {
     canonical: `https://adarshkhatri.com.np/writings`,
   },
@@ -26,15 +26,14 @@ export default function BlogPosts() {
   return (
     <main>
       <PageHero
-        className="!pb-0"
-        subtitle="My Writings"
+        subtitle="Loose Thoughts"
         title={
           <>
             Thoughts on{" "}
             <GradientText className="">Development & Design</GradientText>
           </>
         }
-        description="I write about web development, system architecture, and improving developer experience. Here you'll find practical guides, in-depth articles, and insights from my experience."
+        description="These aren’t polished essays — just thoughts, reflections, and ideas I felt like putting into words. Just honest writing from wherever I am in the moment."
       />
 
       <section className="!pt-0 !pb-2 max-w-4xl mx-auto px-4">

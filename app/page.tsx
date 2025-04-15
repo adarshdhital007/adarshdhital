@@ -39,21 +39,28 @@ export default async function Home() {
           </>
         }
       >
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          <figure className="md:col-span-1 flex justify-center">
-            <div className="relative h-[308px] w-[330px] md:w-[408px] md:h-[240px]">
-              <Image
-                src="/images/headshot.jpg"
-                alt="Adarsh Dhital"
-                fill
-                className="rounded-3xl object-cover"
-                priority
-              />
-            </div>
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 md:px-4">
+          <figure className="md:col-span-1 flex justify-center relative w-full h-72 md:h-auto">
+            <Image
+              src="/images/IMG.jpg"
+              alt="Adarsh Dhital"
+              width={408}
+              height={408}
+              className="hidden md:block w-full h-full object-cover rounded-3xl"
+              priority
+            />
+
+            <Image
+              src="/images/landscape.jpg"
+              alt="Adarsh Dhital"
+              fill
+              className="block md:hidden object-cover"
+              priority
+            />
           </figure>
 
-          <article className="md:col-span-2 flex flex-col gap-4">
-            <p className="font-medium text-neutral-800 dark:text-neutral-200 text-[22px] leading-[30px]">
+          <article className="md:col-span-2 flex flex-col gap-4 md:px-0 px-4">
+            <p className="font-medium text-neutral-800 dark:text-neutral-200 text-lg md:text-xl leading-[28px] md:leading-[30px]">
               Hi, I&apos;m a{" "}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 software engineer
@@ -61,8 +68,8 @@ export default async function Home() {
               based in Kathmandu, Lalitpur.
             </p>
 
-            <section className="font-medium text-[16px] flex flex-col gap-2">
-              <h3 className="font-semibold text-emerald-600 dark:text-emerald-400 text-xl">
+            <section className="flex flex-col justify-between h-full gap-3 md:gap-0 font-medium text-[17px]">
+              <h3 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
                 Currently
               </h3>
 
