@@ -1,3 +1,4 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import Experience from "app/components/Experience";
 import PageHero from "app/components/PageHero";
 import PowerSet from "app/components/PowerSet";
@@ -42,7 +43,7 @@ export default async function Home() {
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 md:px-4">
           <figure className="md:col-span-1 flex justify-center relative w-full h-72 md:h-auto">
             <Image
-              src="/images/IMG.jpg"
+              src="/images/headshot.jpg"
               alt="Adarsh Dhital"
               width={408}
               height={408}
