@@ -2,7 +2,7 @@ import { ExperienceItemProps } from "app/components/ExperienceItem";
 
 export const experiences: ExperienceItemProps[] = [
   {
-    title: "Junior Software Engineer",
+    title: "Associate Software Engineer",
     company: "Vertex Special Technology",
     period: "2023 - Present",
     description: `Contributed to the design and development of <span class="font-medium">websites and mobile applications</span> using <span class="font-medium">Angular</span>, <span class="font-medium">React</span>, <span class="font-medium">Node.js</span>, <span class="font-medium">Typescript</span> and <span class="font-medium">MongoDB</span>.`,

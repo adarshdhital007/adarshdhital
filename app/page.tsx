@@ -53,7 +53,7 @@ export default async function Home() {
           </figure>
 
           <article className="md:col-span-2 flex flex-col gap-4">
-            <p className="font-medium text-gray-800 dark:text-gray-200 text-[22px] leading-[30px]">
+            <p className="font-medium text-neutral-800 dark:text-neutral-200 text-[22px] leading-[30px]">
               Hi, I&apos;m a{" "}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 software engineer
@@ -66,13 +66,13 @@ export default async function Home() {
                 Currently
               </h3>
 
-              <p className="text-gray-800 dark:text-gray-200">
+              <p className="text-neutral-800 dark:text-neutral-200">
                 Focused on crafting websites and apps that make an impact, but
                 also redefine the boundaries of innovation. My aim is to create
                 products that are both useful and visionary,
               </p>
 
-              <p className="text-gray-800 dark:text-gray-200">
+              <p className="text-neutral-800 dark:text-neutral-200">
                 Learning through action, discovery at large, creating with
                 purpose. I never forget that the world around me is shaped by
                 the work of others.
@@ -110,9 +110,7 @@ export default async function Home() {
         </section>
       </Section>
 
-      <Section title="Experience">
-        <Experience experiences={experiences} />
-      </Section>
+      <Experience experiences={experiences} />
     </main>
   );
 }

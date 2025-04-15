@@ -37,7 +37,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
       </h3>
 
       <div>
-        <p className="text-lg text-gray-800 dark:text-gray-200 mb-4">
+        <p className="text-lg text-neutral-800 dark:text-neutral-200 mb-4">
           {description}{" "}
           <span className={`underline decoration-2 underline-offset-[5px] ${primaryColor}`}>
             {highlightText}
@@ -49,7 +49,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
           {skills.map((skill) => (
             <div key={skill.name} className="flex items-center">
               <span className={`inline-block w-3 h-3 ${dotColor} rounded-full mr-2`}></span>
-              <span className="font-semibold text-gray-700 dark:text-gray-300">
+              <span className="font-semibold text-neutral-700 dark:text-neutral-300">
                 {skill.name}
               </span>
               <span className={`text-xs ${textColor} ml-1`}>

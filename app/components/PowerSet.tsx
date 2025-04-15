@@ -26,8 +26,8 @@ const PowerSet: React.FC<PowerSetProps> = ({
   categories,
   className = "",
   labelWidth = "w-28",
-  primaryTextColor = "text-gray-800 dark:text-gray-200",
-  secondaryTextColor = "text-gray-500 dark:text-gray-400",
+  primaryTextColor = "text-neutral-800 dark:text-neutral-200",
+  secondaryTextColor = "text-neutral-500 dark:text-neutral-400",
   borderColor = "border-gray-200 dark:border-gray-700",
   spacing = "space-y-3",
 }) => {
