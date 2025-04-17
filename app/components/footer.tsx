@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import TimeOfDay from "./my-time";
+import Time from "./Time";
 
 const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
@@ -54,10 +54,10 @@ const Footer = () => {
           showSubFooter ? "border-b" : "border-b-transparent"
         } border-neutral-200 dark:border-neutral-800 py-3 px-4 flex justify-between items-center text-neutral-700 dark:text-neutral-300`}
       >
-        <div className="flex px-4 w-[56rem] items-center max-[350px]:flex-col mx-auto justify-between">
+        <div className="flex px-4 w-[56rem] items-center mx-auto justify-between">
           <div className="font-medium text-sm">Crafted by Adarsh</div>
           <div className="flex items-center">
-            <TimeOfDay onClick={handleClockClick} />
+            <Time onClick={handleClockClick} />
           </div>
         </div>
       </footer>

@@ -1,5 +1,113 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+interface InteractiveParagraphProps {
+  text: string;
+  definitions: Record<string, string>;
+}
+
+// Typewriter component that displays text with typewriter effect
+const TypewriterEffect: React.FC<{ text: string }> = ({ text }) => {
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    if (displayText.length < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(text.substring(0, displayText.length + 1));
+      }, 30);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [displayText, text]);
+
+  return <span>{displayText}</span>;
+};
+
+const InteractiveParagraph: React.FC<InteractiveParagraphProps> = ({
+  text,
+  definitions,
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeWord, setActiveWord] = useState<string | null>(null);
+  const [definition, setDefinition] = useState<string>("");
+
+  const handleWordClick = (word: string) => {
+    const lowercaseWord = word.toLowerCase();
+
+    if (definitions[lowercaseWord]) {
+      setActiveWord(word);
+      setDefinition(definitions[lowercaseWord]);
+      setIsModalOpen(true);
+    }
+  };
+
+  const processText = (content: string) => {
+    const words = Object.keys(definitions);
+    let processedContent = content;
+
+    words.forEach((word) => {
+      const regex = new RegExp(`\\b${word}\\b`, "gi");
+      processedContent = processedContent.replace(
+        regex,
+        `<span class="defined-word bg-yellow-200 dark:bg-yellow-400 cursor-pointer px-1 rounded hover:bg-yellow-300 dark:hover:bg-yellow-500 transition-colors" data-word="${word}">${word}</span>`
+      );
+    });
+
+    return processedContent;
+  };
+
+  const createMarkup = (content: string) => {
+    return { __html: processText(content) };
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <p
+        dangerouslySetInnerHTML={createMarkup(text)}
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.classList.contains("defined-word")) {
+            const word = target.getAttribute("data-word");
+            if (word) handleWordClick(word);
+          }
+        }}
+        className="leading-relaxed interactive-text"
+      />
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogDescription className="sr-only">
+              Definition of the word {activeWord}
+            </DialogDescription>
+            <DialogTitle className="flex items-center">
+              <span className="bg-yellow-400 dark:bg-yellow-500 text-white p-1 rounded">
+                {activeWord}
+              </span>
+            </DialogTitle>
+          </DialogHeader>
+          <TypewriterEffect text={definition} />
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export default InteractiveParagraph;
+
+/**
+ * 
+ * 
+ * 
+ * "use client";
+import React, { useEffect, useState } from "react";
 
 interface InteractiveParagraphProps {
   text: string;
@@ -139,3 +247,5 @@ const InteractiveParagraph: React.FC<InteractiveParagraphProps> = ({
 };
 
 export default InteractiveParagraph;
+
+ */

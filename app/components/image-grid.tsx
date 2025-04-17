@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -105,6 +106,9 @@ export const ImageGrid: React.FC<ImageGridProps> = ({
               <DialogTitle asChild>
                 <VisuallyHidden>View full image: {image.alt}</VisuallyHidden>
               </DialogTitle>
+              <DialogDescription className="sr-only">
+                Image description: {image.alt}
+              </DialogDescription>
               <div className="relative w-full aspect-square">
                 {!loadedDialogImages[image.src] && (
                   <Skeleton className="absolute inset-0 rounded-lg" />

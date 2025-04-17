@@ -56,6 +56,7 @@ export default function Home() {
               src="/images/landscape.jpg"
               alt="Adarsh Dhital"
               fill
+              sizes="(max-width: 767px) 100vw"
               className="block md:hidden object-cover"
               priority
             />

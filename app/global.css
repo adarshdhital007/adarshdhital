@@ -98,7 +98,10 @@ table {
   text-wrap: balance;
 }
 
-
+.prose .prose-span {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
 
 @layer base {
   :root {
@@ -155,8 +158,6 @@ table {
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {

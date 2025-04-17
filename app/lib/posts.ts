@@ -62,7 +62,13 @@ function getMDXData(dir: string) {
       })
       // Filter out only the posts that explicitly have isHidden: true
       .filter(({ metadata }) => !metadata.isHidden)
-  ); // This includes posts where isHidden is undefined or false
+      // Sort the posts by the latest publishedDate
+      .sort((a, b) => {
+        const dateA = new Date(a.metadata.publishedDate);
+        const dateB = new Date(b.metadata.publishedDate);
+        return dateB.getTime() - dateA.getTime();
+      })
+  );
 }
 
 export function getBlogPosts() {

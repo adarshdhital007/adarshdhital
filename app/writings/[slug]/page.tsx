@@ -4,6 +4,7 @@ import { CustomMDX } from "app/components/mdx";
 import { formatDate, getBlogPosts } from "app/lib/posts";
 import { metaData } from "app/config";
 import Link from "next/link";
+import NotFound from "@/app/not-found";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -62,23 +63,13 @@ export default async function BlogPost({ params }) {
 
   if (!post) {
     return (
-      <main className="p-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 p-4 rounded-lg">
-            <h1 className="text-xl font-bold mb-2">Post not found</h1>
-            <p>
-              The post you&apos;re looking for doesn&apos;t exist or has been
-              removed.
-            </p>
-            <Link
-              href="/writings"
-              className="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              ← Back to Writings
-            </Link>
-          </div>
-        </div>
-      </main>
+      <NotFound
+        title="404 - The Page You Seek Is a Blank Scroll"
+        message="It seems this piece of writing has vanished like ink in the rain."
+        subtext="No tales to read here, but there are many other stories still waiting for you."
+        buttonText="Return to the Library of Writings"
+        buttonHref="/writings"
+      />
     );
   }
 
