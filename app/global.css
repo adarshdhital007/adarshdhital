@@ -11,6 +11,12 @@
   box-sizing: border-box;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* Light theme colors - Brighter version */
 :root {
   --sh-class: #1e88e5; /* Bright sky blue */

@@ -4,8 +4,6 @@ import PowerSet from "app/components/PowerSet";
 import Section from "app/components/Section";
 import experiences from "data/experience";
 import Image from "next/image";
-import { RevealMe } from "./components/RevealMe";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const skillCategories = [
@@ -79,7 +77,7 @@ export default function Home() {
               <p className="text-neutral-800 dark:text-neutral-200">
                 Focused on crafting websites and apps that make an impact, but
                 also redefine the boundaries of innovation. My aim is to create
-                products that are both useful and visionary,
+                products that are both useful and visionary.
               </p>
 
               <p className="text-neutral-800 dark:text-neutral-200">
