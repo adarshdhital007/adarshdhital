@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "./components/ThemeSwitch";
 import Navbar from "./components/Navbar";
 import "./global.css";
-import Footer from "./components/Footer";
+import FooterWithClock from "./components/FooterWithClock";
 
 const inter = Geist({ subsets: ["latin"] });
 
@@ -88,7 +88,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="grow">{children}</main>
-          <Footer />
+          <FooterWithClock />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

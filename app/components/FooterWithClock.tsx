@@ -13,7 +13,7 @@ const dynamicFooterMessages: Record<string, string> = {
   message5: "If life throws errors, refactor and move on.",
 };
 
-const Footer = () => {
+const FooterWithClock = () => {
   const [showSubFooter, setShowSubFooter] = useState(false);
   const pathname = usePathname();
   const [footerMessage, setFooterMessage] = useState("");
@@ -77,4 +77,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterWithClock;
