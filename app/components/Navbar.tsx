@@ -36,30 +36,21 @@ export default function Navbar() {
     href === "/writings" ? pathname.startsWith("/writings") : pathname === href;
 
   const renderNavLinks = () =>
-    navLinks.map(({ href, label, isExternal }) =>
-      isExternal ? (
-        <Link
-          target="_blank"
-          key={href}
-          href={href}
-          className="px-3 py-2 rounded-lg transition-all text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          {label}
-        </Link>
-      ) : (
-        <Link
-          key={href}
-          href={href}
-          className={`px-3 py-2 rounded-lg transition-all ${
-            isActive(href)
-              ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium"
-              : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
-          }`}
-        >
-          {label}
-        </Link>
-      )
-    );
+    navLinks.map(({ href, label, isExternal }) => (
+      <Link
+        target={isExternal ? "_blank" : ""}
+        prefetch={isExternal ? false : undefined}
+        key={href}
+        href={href}
+        className={`px-3 py-2 rounded-lg transition-all ${
+          isActive(href)
+            ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium"
+            : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
+        }`}
+      >
+        {label}
+      </Link>
+    ));
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
