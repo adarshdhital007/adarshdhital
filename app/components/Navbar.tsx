@@ -35,24 +35,14 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === "/writings" ? pathname.startsWith("/writings") : pathname === href;
 
-  const handleClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (href === "/resume") {
-      event.preventDefault();
-      window.open("/Resume.pdf", "_blank");
-    }
-  };
-
   const renderNavLinks = () =>
     navLinks.map(({ href, label, isExternal }) =>
       isExternal ? (
         <Link
+          target="_blank"
           key={href}
           href={href}
           className="px-3 py-2 rounded-lg transition-all text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
-          onClick={(e) => handleClick(e, href)}
         >
           {label}
         </Link>

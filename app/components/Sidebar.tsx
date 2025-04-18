@@ -55,22 +55,22 @@ const Sidebar = () => {
         </SheetHeader>
         <div className="pl-3 text-base font-bold">index.</div>
         <nav className="flex flex-col space-y-2">
-          {navLinks.map((nav) => (
-            <Link
-              key={nav.href}
-              href={nav.href}
-              onClick={() => {
-                setOpen(false);
-              }}
-              className={`px-3 py-2 rounded-lg transition-all ${
-                isActive(nav.href)
-                  ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium"
-                  : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
-              }`}
-            >
-              {nav.label}
-            </Link>
-          ))}
+          <nav className="flex flex-col space-y-2">
+            {navLinks.map(({ href, label, isExternal }) => (
+              <Link
+                key={href}
+                href={href}
+                target={isExternal ? "_blank" : ""}
+                className={`px-3 py-2 rounded-lg transition-all ${
+                  isActive(href)
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium"
+                    : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
         </nav>
         <div className="flex mt-auto justify-end w-full border-t border-neutral-200 dark:border-neutral-800 pt-4">
           <ThemeSwitch />
