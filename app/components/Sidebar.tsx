@@ -61,6 +61,7 @@ const Sidebar = () => {
                 key={href}
                 href={href}
                 target={isExternal ? "_blank" : ""}
+                onClick={()=> setOpen(false)}
                 prefetch={isExternal ? false : undefined}
                 className={`px-3 py-2 rounded-lg transition-all ${
                   isActive(href)
