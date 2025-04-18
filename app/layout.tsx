@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { metaData } from "./config";
-import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -8,8 +7,6 @@ import Navbar from "./components/Navbar";
 import "./global.css";
 import FooterWithClock from "./components/FooterWithClock";
 import { ThemeProvider } from "next-themes";
-
-const inter = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -59,7 +56,7 @@ export default function RootLayout({
   readonly children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="alternate"
@@ -90,6 +87,7 @@ export default function RootLayout({
           <Navbar />
           <main className="grow">{children}</main>
           <FooterWithClock />
+          
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

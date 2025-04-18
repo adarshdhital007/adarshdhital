@@ -2,115 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-/* Light theme colors - Brighter version */
-:root {
-  --sh-class: #1e88e5; /* Bright sky blue */
-  --sh-identifier: #212121; /* Deep charcoal for contrast */
-  --sh-sign: #5c6bc0; /* Bright soft indigo */
-  --sh-string: #009688; /* Vivid teal */
-  --sh-keyword: #d32f2f; /* Bright red */
-  --sh-comment: #9e9e9e; /* Lighter gray for comments */
-  --sh-jsxliterals: #7e57c2; /* Vibrant purple */
-  --sh-property: #f57c00; /* Bright orange */
-  --sh-entity: #c62828; /* Strong crimson */
-}
-
-/* Dark theme colors */
-.dark {
-  background-color: #171717;
-  --sh-class: #4c97f8;
-  --sh-identifier: white;
-  --sh-sign: #8996a3;
-  --sh-string: #0fa295;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-html {
-  min-width: 360px;
-}
-
-.prose {
-  @apply text-[#000000] dark:text-[#FFFFFF];
-}
-
-.prose .anchor {
-  @apply absolute invisible no-underline;
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
-
-.anchor:hover {
-  @apply visible;
-}
-.prose pre {
-  @apply bg-[#F7F7F7] dark:bg-[#000000] rounded-lg overflow-x-auto;
-}
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Remove Safari input shadow on mobile */
-input[type="text"],
-input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: 500;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.prose .callout > p {
-  margin: 0 !important;
-}
-
-.title {
-  text-wrap: balance;
-}
-
-.prose .prose-span {
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
 @layer base {
   :root {
+    --font-fallback: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    --font-sans: "Sohne", var(--font-fallback);
+    --font-mono: "Menlo", monospace;
+    --type: var(--text) / var(--leading) var(--font-sans);
+    --text: 16px;
+    --leading: 28px;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -168,8 +69,144 @@ table {
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 360px;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white dark:bg-neutral-900;
+    font-family: var(--font-sans);
   }
+}
+
+@font-face {
+  font-family: Sohne;
+  font-display: block;
+  src: url(/fonts/sohne-subset-0.woff2) format("woff2");
+  font-weight: 400;
+}
+
+::selection {
+  background-color: #47a3f3;
+  color: #fefefe;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* B/W theme */
+/* :root {
+  --sh-class: black;
+  --sh-identifier: black;
+  --sh-sign: #8f8f8f;
+  --sh-string: black;
+  --sh-keyword: #858585;
+  --sh-comment: #9e9e9e;
+  --sh-jsxliterals: #7e57c2;
+  --sh-property: black;
+  --sh-entity: black;
+}
+
+.dark {
+  --sh-class: white;
+  --sh-identifier: white;
+  --sh-sign: #8996a3;
+  --sh-string: white;
+  --sh-keyword: #7e7e7e;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: white;
+  --sh-entity: white;
+} */
+
+/* Vibrant Default  */
+:root {
+  --sh-class: #3b82f6;
+  --sh-identifier: #1f2937;
+  --sh-sign: #737373;
+  --sh-string: #10b981;
+  --sh-keyword: #ef4444;
+  --sh-comment: #9ca3af;
+  --sh-jsxliterals: #8b5cf6;
+  --sh-property: #f97316;
+  --sh-entity: #dc2626;
+}
+
+/* Dark theme colors */
+.dark {
+  --sh-class: #4c97f8;
+  --sh-identifier: white;
+  --sh-sign: #8996a3;
+  --sh-string: #0fa295;
+  --sh-keyword: #f47067;
+  --sh-comment: #a0a0a0;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
+}
+
+.prose {
+  @apply text-[#000000] dark:text-[#FFFFFF];
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+.prose pre {
+  @apply bg-[#F7F7F7] dark:bg-[#232323] rounded-lg overflow-x-auto;
+}
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.prose .tweet a {
+  text-decoration: inherit;
+  font-weight: 500;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+.title {
+  text-wrap: balance;
+}
+
+.prose .prose-span {
+  margin-top: 10px;
+  margin-bottom: 30px;
 }

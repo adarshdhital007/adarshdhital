@@ -55,21 +55,21 @@ export default function Navbar() {
   ) => {
     if (href === "/resume") {
       event.preventDefault();
-      window.open("/resume.pdf", "_blank");
+      window.open("/Resume.pdf", "_blank");
     }
   };
 
   const renderNavLinks = () =>
     navLinks.map(({ href, label, isExternal }) =>
       isExternal ? (
-        <a
+        <Link
           key={href}
           href={href}
           className={`px-3 py-2 rounded-lg transition-all text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-blue-600 dark:hover:text-blue-400`}
           onClick={(e) => handleClick(e, href)}
         >
           {label}
-        </a>
+        </Link>
       ) : (
         <Link
           key={href}

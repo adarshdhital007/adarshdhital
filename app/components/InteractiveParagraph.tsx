@@ -56,7 +56,7 @@ const InteractiveParagraph: React.FC<InteractiveParagraphProps> = ({
       const regex = new RegExp(`\\b${word}\\b`, "gi");
       processedContent = processedContent.replace(
         regex,
-        `<span class="defined-word bg-yellow-200 dark:bg-yellow-400 cursor-pointer px-1 rounded hover:bg-yellow-300 dark:hover:bg-yellow-500 transition-colors" data-word="${word}">${word}</span>`
+        `<span class="defined-word text-black bg-yellow-300 cursor-pointer px-1 rounded hover:bg-yellow-400 transition-colors" data-word="${word}">${word}</span>`
       );
     });
 
@@ -88,7 +88,7 @@ const InteractiveParagraph: React.FC<InteractiveParagraphProps> = ({
               Definition of the word {activeWord}
             </DialogDescription>
             <DialogTitle className="flex items-center">
-              <span className="bg-yellow-400 dark:bg-yellow-500 text-white p-1 rounded">
+              <span className="bg-yellow-400 text-black p-1 rounded">
                 {activeWord}
               </span>
             </DialogTitle>

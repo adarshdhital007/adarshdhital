@@ -8,103 +8,31 @@ isHidden: false
 ---
 
 ### Lexical Scope
+```JS
+// This is a simple JS code demonstrating identifiers, signs, strings, keywords, comments, JSX literals, properties, and entities
 
-When we write code, we create different parts, like functions and blocks. Each of these parts has its own space for variables. We call this space a scope. A variable's scope defines where in the code it can be used.
+// Declare an identifier for a function
+function greet(name) {
+  // Using a string (which is also a value type)
+  let message = `Hello, ${name}!`; // Template literal (JSX-like string)
 
-### Key Points
-
-- A variable's scope is determined by its position in the code.
-- Variables defined in an outer scope (like a global scope or an enclosing function) are accessible to inner scopes.
-- We can't access variables from an inner scope in an outer scope.
-
-### Static scoping makes code easier to understand and work with.
-
-- **Predictable**: We always know where to find a variable.
-- **Organized**: Code is neatly divided into sections, making it readable.
-- **Reliable**: Fewer unexpected changes to variables means less bugs.
-- **Reusable**: Code parts can be used in different places without causing problems.
-
-```javascript
-function outerFunction() {
-  let outerVar = "I am from outer scope";
-
-  function innerFunction() {
-    console.log(outerVar); // innerFunction can access outerVar
-  }
-
-  innerFunction();
-}
-
-outerFunction(); // Logs "I am from outer scope"
-```
-
-- **outerVar** is declared in outerFunction
-- **innerFunction** is defined inside **outerFunction** , so it has access to **outerVar** due to lexical scoping.
-- When **innerFunction** is executed, it can access **outerVar** because it is in the outer scope of **innerFunction**.
-
-### Closures
-
-Closures allows a function to retain access to it's lexical scopre even after the function has executed. It is useful for data encapsulation and creating private variables.
-
-```javascript
-function createForm() {
-  let submitCount = 0; // This is private and not accessible from outside
-
-  return function submitForm() {
-    submitCount++;
-    console.log(`Form submitted ${submitCount} times`);
+  // Using a keyword `let` to declare a variable
+  let entity = { 
+    firstName: "John", // Property
+    lastName: "Doe" // Property
   };
+
+  // JS Sign (comparison sign)
+  if (name === "Alice") {
+    // JSX Literal in a return statement
+    return <div>{message}</div>; // JSX-like string literal
+  } else {
+    // Single-line comment explaining this return
+    return message; // Return message as string
+  }
 }
 
-const submit = createForm();
-submit(); // Form submitted 1 times
-submit(); // Form submitted 2 times
+// Call the function with an identifier and string argument
+console.log(greet("Alice")); // Call the function and output result
+
 ```
-
-Here **submitCount** is private to the **createform** function and only the **submitForm** function has access to it.
-
-### Arrow Functions
-
-Arrow functions provide a shorte syntax and do not bind their own **this** context, which can simplify our code , especially in callbacks.
-
-```javascript
-const buttons = document.querySelectorAll("button");
-
-// Traditional function
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    console.log(this.textContent);
-  });
-});
-
-// Arrow function
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    console.log(button.textContent);
-  });
-});
-```
-
-### Event Delegation
-
-Instead of adding event listeners to many elements, we can add one listener to a parent element and handle events for it's children, which is more efficient.
-
-For example, we have a list of items, and we want to handle click events for each item
-
-```javascript
-const list = document.getElementById("item-list");
-
-list.addEventListener("click", (event) => {
-  if (event.target && event.target.matches("li")) {
-    console.log(`Item clicked: ${event.target.textContent}`);
-  }
-});
-```
-
-{/* <ReferenceList
-titles={["JavaScript Closures", "Lexical Scoping"]}
-links={[
-"https://javascript.info/closure",
-"https://www.freecodecamp.org/news/javascript-lexical-scope-tutorial/",
-]}
-/> */}
