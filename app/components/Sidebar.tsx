@@ -19,23 +19,26 @@ import { useEffect, useState } from "react";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
 
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/writings" ? pathname.startsWith("/writings") : pathname === href;
+
+  // Add useEffect to handle window resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 479) {
+      if (window.innerWidth > 630 && open) {
         setOpen(false);
       }
     };
 
+    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const pathname = usePathname();
-  const isActive = (href: string) =>
-    href === "/writings" ? pathname.startsWith("/writings") : pathname === href;
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [open]); // Dependency on open state to ensure the latest value is used
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -43,7 +46,7 @@ const Sidebar = () => {
         <Menu className="w-[20px] h-[20px]" />
       </SheetTrigger>
       <SheetContent
-        className="p-4 bg-white dark:bg-neutral-900 flex flex-col w-full"
+        className="p-4 bg-white dark:bg-neutral-900 flex flex-col w-[95%] mx-auto rounded-t-xl"
         side={"bottom"}
       >
         <SheetHeader className="sr-only">

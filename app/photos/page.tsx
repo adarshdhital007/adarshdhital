@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Photos() {
+export default async function Photos() {
   return (
     <section>
       <PageHero
@@ -28,24 +28,24 @@ export default function Photos() {
       />
 
       <ImageGrid
-        columns={3}
         images={[
-          { src: "/photos/8.jpeg", alt: "Burj Khalifa Top View" },
-          { src: "/photos/3.jpeg", alt: "Side View Car" },
           { src: "/photos/1.jpeg", alt: "Front View Car" },
-          { src: "/photos/12.jpeg", alt: "Making of Burj Khalifa" },
-          { src: "/photos/15.jpeg", alt: "Miracle Garden Horse" },
-          { src: "/photos/7.jpeg", alt: "Shadow of Burj Khalifa" },
-          { src: "/photos/9.jpeg", alt: "Burj Khalifa Top Car View" },
-          { src: "/photos/5.jpeg", alt: "Night View Skyscraper" },
-          { src: "/photos/10.jpeg", alt: "Burj Khalifa 2" },
-          { src: "/photos/16.jpeg", alt: "Miracle Garden Clock" },
-          { src: "/photos/6.jpeg", alt: "Skyscraper 1" },
-          { src: "/photos/11.jpeg", alt: "Ornament Burj Khalifa" },
-          { src: "/photos/4.jpeg", alt: "Yacht" },
-          { src: "/photos/13.jpeg", alt: "Burj Khalifa 3" },
           { src: "/photos/2.jpeg", alt: "Skyscraper 2" },
+          { src: "/photos/3.jpeg", alt: "Side View Car" },
+          { src: "/photos/4.jpeg", alt: "Yacht" },
+          { src: "/photos/5.jpeg", alt: "Night View Skyscraper" },
+          { src: "/photos/6.jpeg", alt: "Skyscraper 1" },
+          { src: "/photos/7.jpeg", alt: "Shadow of Burj Khalifa" },
+          { src: "/photos/8.jpeg", alt: "Burj Khalifa Top View" },
+          { src: "/photos/9.jpeg", alt: "Burj Khalifa Top Car View" },
+          { src: "/photos/10.jpeg", alt: "Burj Khalifa 2" },
+          { src: "/photos/11.jpeg", alt: "Ornament Burj Khalifa" },
+          { src: "/photos/12.jpeg", alt: "Making of Burj Khalifa" },
+          { src: "/photos/13.jpeg", alt: "Burj Khalifa 3" },
           { src: "/photos/14.jpeg", alt: "Camel Desert" },
+          { src: "/photos/15.jpeg", alt: "Miracle Garden Horse" },
+          { src: "/photos/16.jpeg", alt: "Miracle Garden Clock" },
+          { src: "/photos/17.jpg", alt: "Desert" },
         ]}
       />
     </section>
