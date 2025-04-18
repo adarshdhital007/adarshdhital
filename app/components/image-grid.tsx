@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ImageGridProps {
   images: {
@@ -59,31 +60,44 @@ export const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
       `}</style>
 
       <div className="container mx-auto max-w-7xl">
-        {images.map((image, index) => (
-          <figure key={index + image.src}>
-            {image.href ? (
-              <a href={image.href} target="_blank" rel="noopener noreferrer">
-                <Image
-                  alt={image.alt}
-                  src={image.src}
-                  width={500}
-                  height={300}
-                  className="rounded-lg"
-                  priority
-                />
-              </a>
-            ) : (
-              <Image
-                alt={image.alt}
-                src={image.src}
-                width={500}
-                height={300}
-                className="rounded-lg"
-                priority
-              />
-            )}
-          </figure>
-        ))}
+        {images.map((image, index) => {
+          const [isLoading, setIsLoading] = useState(true);
+          return (
+            <figure key={index + image.src}>
+              {image.href ? (
+                <a href={image.href} target="_blank" rel="noopener noreferrer">
+                  {isLoading && (
+                    <Skeleton className="w-full h-[300px] rounded-lg" />
+                  )}
+                  <Image
+                    alt={image.alt}
+                    src={image.src}
+                    width={500}
+                    height={300}
+                    className={`rounded-lg ${isLoading ? "hidden" : ""}`}
+                    priority
+                    onLoadingComplete={() => setIsLoading(false)}
+                  />
+                </a>
+              ) : (
+                <>
+                  {isLoading && (
+                    <Skeleton className="w-full h-[300px] rounded-lg" />
+                  )}
+                  <Image
+                    alt={image.alt}
+                    src={image.src}
+                    width={500}
+                    height={300}
+                    className={`rounded-lg ${isLoading ? "hidden" : ""}`}
+                    priority
+                    onLoadingComplete={() => setIsLoading(false)}
+                  />
+                </>
+              )}
+            </figure>
+          );
+        })}
       </div>
     </>
   );
