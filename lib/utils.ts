@@ -10,5 +10,5 @@ export const navLinks = [
   { href: "/books", label: "books" },
   { href: "/writings", label: "writings" },
   { href: "/photos", label: "photos" },
-  { href: "/Resume.pdf", label: "resume", isExternal: true },
+  { href: "/resume.pdf", label: "resume", isExternal: true },
 ];
